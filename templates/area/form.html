@@ -1,0 +1,16 @@
+<h1>Registro De Área</h1>
+<br>
+<div class="contenedorPac__Principal">
+    <div class="contenedorPac__Principal__Uno" >
+        <form action="{% url 'registroArea' %}" method="POST">
+          {% csrf_token %}
+        <input type="text" hidden class="contenedorPac__Principal__Uno__ingreso" placeholder="Ingrese nombres del paciente" name="txtId" value="{{areaEditar.idArea}}">
+        <h4>Nombre</h4>
+        <input type="text" class="contenedorPac__Principal__Uno__ingreso" placeholder="Ingrese nombre del área" name="txtArea" value="{{areaEditar.nombre}}">
+        <br>
+        <br>
+        <input type="submit" value="Guardar Área" class="contenedorPac__Principal__Uno__ingreso" id="guardarDoctor">
+        <input type="button" onclick="location.href='{% url 'area' %}'" value="Cancelar" class="contenedorPac__Principal__Uno__ingreso" id="cancelarDoctor">
+        </form>
+      </div>
+</div>

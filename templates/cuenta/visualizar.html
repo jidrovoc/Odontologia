@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block estilos %}
+{% load static %}
+
+  <link rel="stylesheet" type="text/css" href='{% static "css/paciente.css" %}'>
+  <link rel="stylesheet" type="text/css" href='{% static "css/historial.css" %}'>
+  <link rel="stylesheet" type="text/css" href='{% static "css/inicio.css" %}'>
+  <link rel="stylesheet" type="text/css" href='{% static "css/titulos.css" %}'>
+{% endblock %}
+{% block contenido %} 
+<img id="imgHistorial" src='{% static "img/historial.png" %}'> 
+<h1 id="tituloHistorial">Estado de Cuenta</h1>
+<br>
+<div class="busqueda" >
+  <div class="busqueda__Historial">
+    <!-- <a href="" class="button" id="btnRegistrar" >Registrar Nueva Historia Clínica</a> -->
+    <form action="{% url 'actualizarCuenta' %}" method="POST" style="width:650px;">
+        {% csrf_token %}
+        <!-- <h4 id="">Sexo</h4> -->
+          <!--id="ingresoSexo"-->
+          <!-- <select name="sexo" class="contenedorPac__Principal__Uno__ingreso" value="{{pacienteEditar.sexo}}">
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+          </select>  -->
+        <div style="width:auto; display: flex;margin-top: 15px;" >
+          <input type="text" hidden class="contenedorPac__Principal__Uno__ingreso" placeholder="Ingrese nombres del paciente" name="txtId" value="{{cuenta.idEstado}}">
+          <h4 style="margin-right: 34px;">Saldo</h4><br>
+          <input readonly type="number" style="margin-right: 20px;width: 100px;" class="contenedorPac__Principal__Uno__ingreso" placeholder="Nombres del paciente" name="txtSaldo" value="{{ cuenta.saldo }}">
+           </div>
+  
+        <div style="width:auto; display: flex;margin-top: 15px;">
+          <h4 style="margin-right:10px;">Total abonado</h4>
+          <input readonly style="margin-right: 24px;width: 100px;" type="number" required maxlength="9" class="contenedorPac__Principal__Uno__ingreso" placeholder="Cédula del paciente" name="txtAbono" value="{{cuenta.abono}}"> 
+         
+        </div>
+  
+        <div style="width:auto; display: flex;margin-top: 15px;">
+          <h4 style="margin-right: 48px;">Cancela</h4>
+          <input style="margin-right: 24px;width: 150px;" type="number"   class="contenedorPac__Principal__Uno__ingreso" placeholder="Valor" name="txtCancela" value="">
+        
+          </div>
+  
+      
+      <br>
+      <input type="submit" value="Actualizar Cuenta" class="contenedorPac__Principal__Uno__ingreso" id="guardarDoctor">
+      <input style="width: 20%;color: white;" type="button" onclick="location.href='{% url 'cuenta' %}'" value="Cancelar" class="contenedorPac__Principal__Uno__ingreso" id="cancelarPaciente">
+    </form>
+{% endblock %}
+{% block script %}
+{% load static %}
+<script src='{% static "js/busqueda.js" %}'></script>
+{% endblock %}

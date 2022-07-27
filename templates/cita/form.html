@@ -1,0 +1,52 @@
+<h1>Registro de Cita</h1>
+<br>
+<div class="contenedorPac__Principal">
+    <div class="contenedorPac__Principal__Uno" >
+        <form action="{% url 'registroCita' %}" method="POST">
+          {% csrf_token %}
+          <input type="text" hidden class="contenedorPac__Principal__Uno__ingreso" placeholder="Ingrese nombres del paciente" name="txtId" value="{{ idCita }}">
+        <div class="citaIngreso" id="nombres">
+        <h4 style="margin-right: 15px;">Paciente</h4>
+        <input  hidden type="text" id="idPaciente" name="idPaciente" class="contenedorPac__Principal__Uno__ingreso" value="{{consultaCita.idPaciente_id}}">
+        <!-- <input type="text" name="txtPaciente"  list="listaPaciente" class="contenedorPac__Principal__Uno__ingreso" placeholder="Ingrese nombre del paciente" value="{{datoPaciente.nombres}} {{datoPaciente.apellidos}}"> -->
+        <select style="margin-right: 15px; padding-left: 23px;" name="" id="listaPaciente" class="contenedorPac__Principal__Uno__ingreso" onchange="obtenerPaciente(this)">
+          <option value="" selected disabled>Seleccione Paciente</option>
+          {% for paciente in cargarPaciente %}
+            <option value="{{paciente.idPaciente}}">{{paciente.nombres}} {{paciente.apellidos}}</option>
+          {% endfor %}
+        </select>
+        <!-- <datalist id="listaPaciente" required>
+          {% for paciente in cargarPaciente %}
+            <option >{{paciente.idPaciente}}- {{paciente.nombres}} {{paciente.apellidos}}</option>
+          {% endfor %}
+        </datalist> -->
+        <h4 style="margin-right: 15px;">Doctor</h4>
+        <!-- <input type="text" name="txtDoctor"  list="listaDoctor" class="contenedorPac__Principal__Uno__ingreso" placeholder="Ingrese nombre del doctor" value="{{datoDoctor.nombres}} {{datoDoctor.apellidos}}"> -->
+        <input hidden type="text" id="idDoctor" name="idDoctor" class="contenedorPac__Principal__Uno__ingreso" value="{{consultaCita.idDoctor_id}}">
+        <select name="" style="padding-left: 25px;" id="listaDoctor" onchange="obtenerDoctor(this)" class="contenedorPac__Principal__Uno__ingreso">
+          <option value="" selected disabled>Seleccione Doctor</option>
+          {% for doctor in cargarDoctor %}
+            <option value="{{doctor.idDoctor}}" >{{doctor.nombres}} {{doctor.apellidos}}</option>
+            {% endfor %}
+        </select>
+        <!-- <datalist id="listaDoctor" required>
+          {% for doctor in cargarDoctor %}
+            <option >{{doctor.idDoctor}}- {{doctor.nombres}} {{doctor.apellidos}}</option>
+            {% endfor %}
+        </datalist> -->
+      </div>
+        <div class="citaIngreso">
+        <h4 id="infoArea">Fecha de la Cita</h4>
+        <input type="text" value="{{consultaCita.fecha}}" id="fechaValor" hidden>
+        <input data-date="" data-date-format="DD MMMM YYYY" type="date" name="fechaCita" id="editarFecha" required class="contenedorPac__Principal__Uno__ingreso" placeholder="Ingrese fecha de la cita" value="{{ fecha }}">
+        <h4 id="">Hora</h4>
+        <input type="time" name="horaCita" required class="contenedorPac__Principal__Uno__ingreso" placeholder="Ingrese hora de la cita" value="{{ hora }}">
+        </div>
+        <h4 id="" style="margin-left: 16px;">Descripción</h4>
+        <textarea style="margin-left: 16px;" name="descripcionCita" required class="contenedorPac__Principal__Uno__ingreso" id="txtDescripcion" cols="50" rows="4" placeholder="Descripción de la cita" value="">{{consultaCita.descripcion}}</textarea>
+        <br>
+        <input style="margin-left: 16px;color: white;" type="submit" value="Guardar Cita" class="contenedorPac__Principal__Uno__ingreso" id="guardarCita">
+        <input style="margin-left: 16px;color: white" type="button" onclick="location.href='{% url 'cita' %}'" value="Cancelar" class="contenedorPac__Principal__Uno__ingreso" id="cancelarCita">
+        </form>
+      </div>
+</div>

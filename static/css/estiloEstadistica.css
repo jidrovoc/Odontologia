@@ -1,0 +1,179 @@
+body{
+    background:rgb(201, 198, 198);
+}
+
+.contenedor{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    background:transparent;
+    height: 100vh;
+}
+
+#tituloDashboard{
+    position: relative;
+    
+
+}
+
+.contenedor__Usuario{
+    position: relative;
+    background-color: var(--bg-color);
+    height:7%;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: var(--bg-color);
+}
+
+.contenedor__Usuario h4{
+    position: relative;
+    margin: 0;
+    padding-left: 2%;
+    padding-top: 0.8%;
+    color: white;
+}
+
+.contenedor__Flex{
+    position: relative;
+    top: 2%;
+    height: 27%;
+    background-color: transparent;
+    display: flex;
+    padding-left: 2%;
+    padding-top:1%;
+}
+
+.contenedor__Flex__Uno, .contenedor__Flex__Dos, .contenedor__Flex__Tres, .contenedor__Flex__Cuatro{
+    position: relative;
+    background: white;
+    width: 23%;
+    height:70%;
+    margin-right: 2%;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: white;
+    top: 10%;
+}
+
+.contenedorTabla{
+    position: relative;
+    top:5%;
+    height:100vh;
+    background: transparent;
+    display: flex;
+}
+
+.contenedorTabla__Facturacion{
+    position: relative;
+    width:60%;
+    background: white;
+    margin-right: 5%;
+}
+
+.contenedorTabla__Cita{
+    position: relative;
+    width:40%;
+    background:white;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(201, 198, 198);
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.table-wrapper{
+    margin: 10px 70px 70px;
+    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+  }
+  
+  .fl-table {
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: white;
+  }
+  
+  .fl-table td, .fl-table th {
+    text-align: center;
+    padding: 8px;
+  }
+  
+  .fl-table td {
+    border-right: 1px solid #f8f8f8;
+    font-size: 12px;
+  }
+  
+  .fl-table thead th {
+    color: #ffffff;
+    background: var(--bg-color);
+  }
+  
+  
+  .fl-table thead th:nth-child(odd) {
+    color: #ffffff;
+    background: var(--bg-color);
+  }
+  
+  .fl-table tr:nth-child(even) {
+    background: #F8F8F8;
+  }
+
+
+.contenedorTabla__Cita__Titulo{
+    position:relative;
+    background:white;
+    height: 5.2%;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: white;
+    margin-left: 2%;
+}
+
+.contenedorTabla__Cita__Titulo h3{
+    position:relative;
+    bottom: 60%;
+}
+
+.contenedor__Flex h4{
+    position:relative;
+    margin-left: 35%;
+}
+
+.contenedor__Flex img{
+  position:absolute;
+  margin-top:10%;
+  margin-left: 2%;
+}
+
+.contenedor__Flex h2{
+  position:relative;
+  margin-left: 55%;
+}
+
+.buttonPacienteEditar, .buttonPacienteEliminar {
+  
+  border-radius: 8px;
+  color: white;
+  padding: 6px 23px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  cursor: pointer;
+
+}
+.buttonPacienteEditar{
+    background-color: rgb(24, 224, 141);
+}
+.buttonPacienteEliminar {
+    background-color: rgb(238, 46, 46);
+  }

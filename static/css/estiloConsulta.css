@@ -1,0 +1,267 @@
+.bloque{
+    position:relative;
+    width:100vh;
+    display: flex;
+}
+
+.bloque h4{
+    margin-right: 2%;
+}
+
+.contenedorPac__Principal__Uno__ingreso{
+    margin-right: 5%;
+}
+
+.bloque .contenedorPac__Principal__Uno__ingreso{
+    position: relative;
+    height: 40px;
+    margin-top: 1.5%;
+}
+
+.bloqueDos .contenedorPac__Principal__Uno__ingreso{
+    width:25%;
+}
+
+.bloqueDos{
+    position:relative;
+    border-style: solid;
+    border-width: 1px;
+    border-top-color: #c9c5c5;
+    border-left-color:#c9c5c5 ;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 1.5%;
+
+    padding-left: 25px;
+}
+
+.bloqueDos__Interior__Uno{
+    position:relative;
+    width: 100%;
+    display: flex;
+    height: 20vh;
+    margin-top: 1%;
+    margin-left: 2%;
+    
+}
+
+.bloqueDos h4{
+    margin-right: 10px;
+}
+
+.bloqueDos__Interior input{
+    height:100px;
+    padding-top: 0;
+    border-radius: 25px;
+}
+
+.contenedorExploracion__Dos{
+    display: flex;
+    margin-top: 10px;
+}
+
+#tituloMotivo{
+    position: relative;
+    background:rgb(90, 87, 87);
+    height:2.2em;
+    border-radius:4px;
+    bottom: 22px;
+}
+
+#tituloMotivo h5{
+    position:relative;
+    top: 8px;
+    left: 8px;
+}
+
+.bloqueDos__Interior{
+    position:relative;
+    border-radius:7px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(90, 87, 87);
+    margin-top: 20px;
+}
+
+.contenedorExploracion__Dos, .contenedorExploracion__Tres, .contenedorExploracion__Cuatro{
+    display: flex;
+    margin-left: 20px;
+}
+
+
+.contenedorExploracion__Uno input{
+    height:37px;
+    margin-top: 1%;
+    padding-top: 10px;
+}
+
+.contenedorExploracion__Uno h4{
+    margin-right: 20px;
+    
+}
+
+#diagnostico #diagnostico__Uno{
+    position:relative;
+    height:40px;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+#diagnostico input{
+    width:30%;
+    margin-left: 15px;
+}
+
+#tratamientoDiv #tratamiento__Uno{
+    width:30%;
+    height:40px;
+    margin-top: 10px;
+    padding-top: 10px;
+    margin-left: 15px;
+}
+
+#tratamientoDiv #tratamiento__Dos{
+    position:relative;  
+    width:30%;
+    margin-left: 25px;
+}
+
+#tratamientoDiv{
+    position:relative;
+    bottom: 18px;
+}
+
+.bloqueDos__Interior__Uno .button{
+    height: 50px;
+}
+
+#agregarTratamiento{
+    position:relative;
+    bottom:50px;
+}
+
+#myTable{
+    position:relative;
+    bottom:100px;
+}
+
+#odontograma{
+    position:relative;
+    top:100px;
+}
+
+.cuadrado{
+    width:10vh;
+    max-width:100px;
+    height:3vh;
+    max-height:100px;
+    position:relative;
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+    border-radius: 5px;
+}
+
+.cuadrado:hover{
+    cursor: pointer;
+}
+
+#opcionObservacion{
+    background: rgb(103, 182, 103);
+}
+
+#opcionAusente{
+    background: rgb(76, 77, 80);
+}
+
+#opcionRadicular{
+    background: rgb(47, 36, 199);
+}
+
+#opcionCarie{
+    background: rgb(112, 175, 194);
+}
+
+#opcionCorona{
+    background: rgb(48, 47, 146);
+}
+
+#opcionIncrustacion{
+    background: rgb(176, 201, 176);
+}
+
+#opcionClavija{
+    background: rgb(8, 112, 8);
+}
+
+#opcionFractura{
+    background: rgb(204, 180, 143);
+}
+
+#opcionEndodoncia{
+    background: rgb(208, 150, 241);
+}
+
+#opcionObturacion{
+    background: rgb(140, 67, 158);
+}
+
+#opcionIntrusion{
+    background: rgb(216, 95, 210);
+}
+
+#opcionExtrusion{
+    background: rgb(233, 213, 102);
+}
+
+#opcionProtesis{
+    background: rgb(230, 77, 77);
+}
+
+#opcionImplante{
+    background: rgb(83, 53, 28);
+}
+
+#opcionOrtodoncia{
+    background: rgb(221, 224, 48);
+}
+
+#opcionEdentulo{
+    background: rgb(0, 0, 0);
+}
+
+#interfazOdontograma g{
+    cursor: pointer;
+    
+}
+
+#svgselect{
+    position:relative;
+    left: 50px;
+    bottom: 50px;
+}
+
+#opcionesOdontograma{
+    position:relative;
+    margin:0;
+    display:flex;
+    bottom: 100px;
+    left: 50px;
+}
+
+.opcionesOdontograma__Uno{
+    position:relative;
+    margin-right: 50px;
+}
+
+#guardarPaciente{
+    margin-right: 10px;
+}
+
+#guardarPaciente, #cancelarPaciente{
+    width: 15%;
+}
+
+#txtAbono, #txtSaldo{
+    padding-left: 20px;
+}

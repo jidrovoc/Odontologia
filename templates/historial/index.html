@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block estilos %}
+{% load static %}
+
+  <link rel="stylesheet" type="text/css" href='{% static "css/paciente.css" %}'>
+  <link rel="stylesheet" type="text/css" href='{% static "css/historial.css" %}'>
+  <link rel="stylesheet" type="text/css" href='{% static "css/inicio.css" %}'>
+  <link rel="stylesheet" type="text/css" href='{% static "css/titulos.css" %}'>
+{% endblock %}
+{% block contenido %} 
+<img id="imgHistorial" src='{% static "img/historial.png" %}'> 
+<h1 id="tituloHistorial">Historial Clínico</h1>
+<br>
+<div class="busqueda" >
+  <div class="busqueda__Historial">
+    <!-- <a href="" class="button" id="btnRegistrar" >Registrar Nueva Historia Clínica</a> -->
+<form action="{% url 'busquedaHistorial' %}" method="POST">
+  {% csrf_token %}
+<input width="150%" type="text" name="buscarHistorial" id="myInput" onkeyup="myFunction()" placeholder="Búsqueda por nombres">
+<input style="width: 17%; background:var(--bg-color);color:white;padding-left: 18px;cursor: pointer;" type="submit" value="Consultar historial" class="contenedorPac__Principal__Uno__ingreso" id="guardarDoctor">
+<!-- <a style="height: 33px; float:right; margin-right: 500px;padding-top: 8px;" class="button">Buscar</a> -->
+</form>
+  </div>
+</div>
+
+<a style="background:rgb(18, 141, 49)" href="" name="" id="imprimirLista" class="buttonPacienteEditar" role="button"><ion-icon name="print-outline" class="nav__icon"></ion-icon> <br> Imprimir Lista</a>
+<div class="table-wrapper" id="myTable">
+    <table class="fl-table">
+        <thead>
+        <tr>
+            <th>N°</th>
+            <th>Paciente</th>
+            <th>Cédula</th>
+            <th>Edad</th>
+            <th>Fecha Nacimiento</th>
+            <!--<th>Fecha Cita</th>
+            <th>Hora Cita</th>-->
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+          {% for historial in entity %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{historial.idPaciente.nombres }} {{historial.idPaciente.apellidos}}</td>
+            <td>{{historial.idPaciente.cedula}}</td>
+            <td>{{historial.idPaciente.fecNacimiento}}</td>
+            <td>{{historial.idPaciente.fecNacimiento}}</td>
+            <td> <a style="background:rgb(18, 141, 49)" href="{% url 'nuevaHistoria' historial.idHistorial %}" name="" id="" class="buttonPacienteEditar" role="button">Ver Historial</a>
+              |
+              <a href="" name="" id="" class="buttonPacienteEliminar" role="button">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+
+        <tbody>
+    </table>
+    <div align="center">
+      {% include 'paginator.html' %}
+    </div>
+</div>
+{% endblock %}
+{% block script %}
+{% load static %}
+<script src='{% static "js/busqueda.js" %}'></script>
+{% endblock %}

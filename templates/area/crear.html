@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block estilos %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href='{% static "css/tratamiento.css" %}'>
+<link rel="stylesheet" type="text/css" href='{% static "css/inicio.css" %}'>
+
+<link rel="stylesheet" href="{% static 'admin/css/vendor/select2/select2.css' %}">
+<link rel="stylesheet" href="{% static 'admin/css/autocomplete.css' %}">
+
+{% endblock %}
+{% block contenido %}
+{% include "area/form.html" %}
+{% endblock %}
+{% block script %}
+<script src='{% static "js/busqueda.js" %}'></script>
+{% endblock %}

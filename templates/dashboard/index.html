@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% block estilos %}
+{% load static %}
+{% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href='{% static "css/estiloEstadistica.css" %}'  >
+    <title>Inicio</title>
+{% endblock %}
+{% block contenido %}
+<div class="contenedor">
+    <div id="tituloDashboard">
+        <h2>Sistema Clínico Odontológico</h2>
+    </div>
+    <div class="contenedor__Usuario">
+        <h4>Bienvenido {{ user.username }}</h4>
+    </div>
+    <div class="contenedor__Flex">
+        <div class="contenedor__Flex__Uno">
+            <img src='{% static "img/pacienteInicio.png" %}' alt="">
+            <h4>Total pacientes</h4>
+            <h2>{{consultaPaciente}}</h2>
+        </div>
+        <div class="contenedor__Flex__Dos">
+            <img src='{% static "img/doctorInicio.png" %}' alt="">
+            <h4>Total doctores</h4>
+            <h2>{{consultaDoctor}}</h2>
+        </div>
+        <div class="contenedor__Flex__Tres">
+            <img src='{% static "img/citaInicio.png" %}' alt="">
+            <h4>Citas pendientes</h4>
+            <h2>{{consultaCita}}</h2>
+        </div>
+        <div class="contenedor__Flex__Cuatro">
+            <img src='{% static "img/tratamientoInicio.png" %}' alt="">
+            <h4>Total tratamientos</h4>
+            <h2>{{consultaTratamiento}}</h2>
+        </div>
+    </div>
+    <!-- <input width="150%" type="text" id="myInput" onkeyup="myFunction()" placeholder="Búsqueda por nombres"> -->
+    <div class="contenedorTabla">
+        <div class="contenedorTabla__Facturacion">
+            <table class="fl-table">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Fecha</th>
+                    <th>Abono</th>
+                    <th>Saldo</th>
+                    
+                </tr>
+                </thead>
+                <tbody>
+                  {% for cuenta in consultaCuenta %}
+                <tr>
+                    <td>{{ cuenta.idEstado }}</td>
+                    <td>{{ cuenta.idPaciente.nombres }} {{ cuenta.idPaciente.apellidos }}</td>
+                    <td>{{ cuenta.fecha }}</td>
+                    <td>{{ cuenta.abono }}</td>
+                    <td>{{ cuenta.saldo }}</td>
+                    
+                </tr>
+                {% endfor %}
+                <tbody>
+            </table>
+        </div>
+        <div class="contenedorTabla__Cita">
+            <div class="contenedorTabla__Cita__Titulo">
+                <h3>Próximas Citas</h3>
+            </div>
+            <table class="fl-table">
+                <thead>
+                <tr>
+                    <th>Paciente</th>
+                    <th>Fec./Cita</th>
+                    <th>Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                  {% for pendiente in consultaCitaPendiente %}
+                <tr>
+                    <td>{{ pendiente.idPaciente.nombres }}</td>
+                    <td>{{ pendiente.fecha }}</td>
+                    <td> <a style="background:rgb(18, 141, 49)" href="{% url 'editarConsulta' pendiente.idCita  %}" name="" id="" class="buttonPacienteEditar" role="button">Atender Cita</a>
+                      <!-- |
+                      <a href="{% url 'anularCita' pendiente.idCita %}" name="" id="" class="buttonPacienteEliminar" role="button">Anular</a> -->
+                    </td>
+                </tr>
+                {% endfor %}
+                <tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{% block script %}
+{% load static %}
+<script src='{% static "js/busqueda.js" %}'></script>
+{% endblock %}

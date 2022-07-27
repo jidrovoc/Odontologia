@@ -1,0 +1,272 @@
+<h1 style="display:flex;">Registro De Paciente</h1>
+<br>
+
+
+    
+<!-- <h4>Apellidos</h4>
+    <input type="text" class="contenedorPac__Principal__Uno__ingreso" placeholder="Ingrese apellidos del paciente">
+    <h4>Cédula</h4>
+    <input type="number" maxlength="9" class="contenedorPac__Principal__Uno__ingreso" placeholder="Ingrese cédula del paciente">
+    <h4>Fecha de Nacimiento</h4>
+    <input type="date" class="contenedorPac__Principal__Uno__ingreso" placeholder="Ingrese fecha de nacimiento del paciente">
+    <h4 id="infoSexo">Sexo</h4>
+    <select name="sexo" id="ingresoSexo" class="contenedorPac__Principal__Uno__ingreso">
+      <option value="M">Masculino</option>
+      <option value="F">Femenino</option>
+    </select> 
+    <h4 id="infoTelefono">Teléfono</h4>
+    <input type="number" maxlength="9" id="ingresoTelefono" class="contenedorPac__Principal__Uno__ingreso" placeholder="Ingrese teléfono del paciente">
+   -->
+  <div class="contenedorExploracion__Ultimo" id="ultimoContenedor" >
+    
+  <div class="contenedorPac__Principal">
+  <div class="contenedorPac__Principal__Uno" >
+    <form action="{% url 'registroPaciente' %}" method="POST" style="width:650px;">
+      {% csrf_token %}
+      <!-- <h4 id="">Sexo</h4> -->
+        <!--id="ingresoSexo"-->
+        <!-- <select name="sexo" class="contenedorPac__Principal__Uno__ingreso" value="{{pacienteEditar.sexo}}">
+          <option value="Masculino">Masculino</option>
+          <option value="Femenino">Femenino</option>
+        </select>  -->
+      <div style="width:auto; display: flex;margin-top: 15px;" >
+        <input type="text" hidden class="contenedorPac__Principal__Uno__ingreso" placeholder="Ingrese nombres del paciente" name="txtId" value="{{pacienteEditar.idPaciente}}">
+        <h4 style="margin-right: 34px;">Nombres</h4><br>
+        <input type="text" style="margin-right: 20px;width: 600px;" class="contenedorPac__Principal__Uno__ingreso" placeholder="Nombres del paciente" name="txtNombre" value="{{pacienteEditar.nombres}}">
+        <h4 style="margin-right: 15px;">Apellidos</h4>
+        <input type="text" style="margin-right: 20px;width: 700px;" required class="contenedorPac__Principal__Uno__ingreso" placeholder="Apellidos del paciente" name="txtApellido" value="{{pacienteEditar.apellidos}}">
+      </div>
+
+      <div style="width:auto; display: flex;margin-top: 15px;">
+        <h4 style="margin-right:48px;">Cédula</h4>
+        <input style="margin-right: 24px;width: 200px;" type="number" required maxlength="9" class="contenedorPac__Principal__Uno__ingreso" placeholder="Cédula del paciente" name="txtCedula" value="{{pacienteEditar.cedula}}"> 
+        <h4 style="margin-right: 48px;">Sexo</h4>
+        <select style="margin-right: 15px;width: 400px;" name="sexo" class="contenedorPac__Principal__Uno__ingreso">
+          <option value="M">Masculino</option>
+          <option value="F">Femenino</option> 
+        </select> 
+      </div>
+
+      <div style="width:auto; display: flex;margin-top: 15px;">
+        <h4 style="margin-right: 48px;">Correo</h4>
+        <input style="margin-right: 24px;width: 200px;" type="text"   class="contenedorPac__Principal__Uno__ingreso" placeholder="Teléfono del paciente" name="txtCorreo" value="{{pacienteEditar.correo}}">
+      
+        <h4 style="margin-right: 25px;height: 30px;margin-top: 10px;">Teléfono</h4>
+        <input style="margin-right: 15px;width: 180px;" type="number" maxlength="9" class="contenedorPac__Principal__Uno__ingreso" placeholder="Teléfono" name="txtTelefono" value="{{pacienteEditar.telefono}}">
+      </div>
+
+      <div style="width:auto; display: flex;margin-top: 15px;">
+        <h4 style="margin-right: 1px;">Fecha de Nacimiento</h4>
+        <input data-date="" data-date-format="DD MMMM YYYY" style="margin-right: 24px;width: 180px;" type="date" required class="contenedorPac__Principal__Uno__ingreso" placeholder="Ingrese fecha de nacimiento del paciente" name="txtFecha" value="{{ fecha }}">
+      </div>
+    <br>
+    <input style="width: 20%;color: white" type="submit" value="Guardar Paciente" class="contenedorPac__Principal__Uno__ingreso" id="guardarPaciente" >
+    <input style="width: 20%;color: white;" type="button" onclick="location.href='{% url 'paciente' %}'" value="Cancelar" class="contenedorPac__Principal__Uno__ingreso" id="cancelarPaciente">
+  </form>
+  </div>
+  <!-- <div class="contenedorPac__Principal__Dos">
+    <div>
+      <ul class="menu">
+        <li><a href="#"  title="Enlace genérico" id="signo" >Signos vitales</a></li>
+        <li><a href="#" title="Enlace genérico" id="enfermedad">Enfermedades/Alergias</a></li>
+        <li><a href="#" title="Enlace genérico" id="otro">Otros</a></li>
+     </ul>
+    </div>
+    <form action="" id="formSigno" >
+      <div class="infoAdicional">
+      <h4>Temperatura</h4>
+      <input type="number" step="0.01" class="contenedorPac__Principal__Uno__ingreso" placeholder="Ingrese temperatura del paciente">
+      <h4>Respiración</h4>
+      <input type="number" class="contenedorPac__Principal__Uno__ingreso" placeholder="Ingrese respiración del paciente">
+      <h4>Pulso</h4>
+      <input type="number" maxlength="9" class="contenedorPac__Principal__Uno__ingreso" placeholder="Ingrese pulso del paciente">
+      <h4>Presión Arterial</h4>
+      <input type="text" maxlength="9" class="contenedorPac__Principal__Uno__ingreso" placeholder="Ingrese pulso del paciente">
+      </div>
+     </form>
+     <form action="" id="formEnfermedad" hidden>
+       <h4>Condiciones que se aplican en el paciente</h4>
+       <input type="checkbox" class="checkPaciente" value="asma"> <label for="cbox2">Asma</label><br>
+       <input type="checkbox" class="checkPaciente" value="cancer"> <label for="cbox2">Cáncer</label><br>
+       <input type="checkbox" class="checkPaciente" value="cardiaca"> <label for="cbox2">Enfermedad Cardiaca</label><br>
+       <input type="checkbox" class="checkPaciente" value="diabetes"> <label for="cbox2">Diabetes</label><br>
+       <input type="checkbox" class="checkPaciente" value="hipertension"> <label for="cbox2">Hipertensión</label><br>
+       <input type="checkbox" class="checkPaciente" value="epilepsia"> <label for="cbox2">Epilepsia</label><br>
+       <h4>Alergia a:</h4>
+       <label >Látex</label>
+       <select name="alergia" id="ingresoAlergia" class="contenedorPac__Principal__Uno__ingreso" style="width: 140px;">
+        <option value="seleccione">Seleccione</option>
+        <option value="si">Si</option>
+        <option value="no">No</option>
+      </select> <br>
+       <label for="cbox2">Medicamentos</label><br>
+        <textarea class="contenedorPac__Principal__Uno__ingreso" cols="30" rows="5"></textarea>
+      </form>
+     <form action="" id="formOtro" hidden>
+       <h4>Tratamiento Dental Previo</h4>
+       <label >¿Ha tenido una o más caries en los últimos tres años?</label>
+       <select name="alergia" id="ingresoAlergia" class="contenedorPac__Principal__Uno__ingreso" style="width: 140px;">
+        <option value="seleccione">Seleccione</option>
+        <option value="si">Si</option>
+        <option value="no">No</option>
+      </select><br>
+
+       <label >Tratamiento por enfermedad periodontal (de las encías)</label>
+       <select name="alergia" id="ingresoAlergia" class="contenedorPac__Principal__Uno__ingreso" style="width: 140px;">
+        <option value="seleccione">Seleccione</option>
+        <option value="si">Si</option>
+        <option value="no">No</option>
+      </select> <br>
+       
+       <label >Ortodoncia (aparatos)</label>
+       <select name="alergia" id="ingresoAlergia" class="contenedorPac__Principal__Uno__ingreso" style="width: 140px;">
+        <option value="seleccione">Seleccione</option>
+        <option value="si">Si</option>
+        <option value="no">No</option>
+      </select> <br>
+       <label >¿Tuvo cirugía bucal?</label>
+       <select name="alergia" id="ingresoAlergia" class="contenedorPac__Principal__Uno__ingreso" style="width: 140px;">
+        <option value="seleccione">Seleccione</option>
+        <option value="si">Si</option>
+        <option value="no">No</option>
+      </select> <br>
+       <label >¿Ha tenido implantes dentales?</label>
+       <select name="alergia" id="ingresoAlergia" class="contenedorPac__Principal__Uno__ingreso" style="width: 140px;">
+        <option value="seleccione">Seleccione</option>
+        <option value="si">Si</option>
+        <option value="no">No</option>
+      </select> <br>
+       <label >Tratamiento por trastornos temporomandibulares</label>
+       <select name="alergia" id="ingresoAlergia" class="contenedorPac__Principal__Uno__ingreso" style="width: 140px;">
+        <option value="seleccione">Seleccione</option>
+        <option value="si">Si</option>
+        <option value="no">No</option>
+      </select> <br>
+       <label >¿Usa dentadura postiza o prótesis parcial?</label>
+       <select name="alergia" id="ingresoAlergia" class="contenedorPac__Principal__Uno__ingreso" style="width: 140px;">
+        <option value="seleccione">Seleccione</option>
+        <option value="si">Si</option>
+        <option value="no">No</option>
+      </select> <br>
+     </form>
+  </div> -->
+   
+ 
+</div>
+  </div> 
+<!-- <div class="contenedorPac__Principal">
+  <div class="contenedorPac__Principal__Uno" >
+    <form action="{% url 'registroPaciente' %}" method="POST">
+      {% csrf_token %}
+      <input type="text" hidden class="contenedorPac__Principal__Uno__ingreso" placeholder="Ingrese nombres del paciente" name="txtId" value="{{pacienteEditar.idPaciente}}">
+    <h4>Nombres</h4>
+    <input type="text" class="contenedorPac__Principal__Uno__ingreso" placeholder="Ingrese nombres del paciente" name="txtNombre" value="{{pacienteEditar.nombres}}">
+    <h4>Apellidos</h4>
+    <input type="text" required class="contenedorPac__Principal__Uno__ingreso" placeholder="Ingrese apellidos del paciente" name="txtApellido" value="{{pacienteEditar.apellidos}}">
+    <h4>Cédula</h4>
+    <input type="number" required maxlength="9" class="contenedorPac__Principal__Uno__ingreso" placeholder="Ingrese cédula del paciente" name="txtCedula" value="{{pacienteEditar.cedula}}"> 
+    <h4>Fecha de Nacimiento</h4>
+    <input type="date" required class="contenedorPac__Principal__Uno__ingreso" placeholder="Ingrese fecha de nacimiento del paciente" name="txtFecha" value="{{pacienteEditar.fecNacimiento}}">
+    <h4 id="infoSexo">Sexo</h4>
+    <select name="sexo" id="ingresoSexo" class="contenedorPac__Principal__Uno__ingreso" value="{{pacienteEditar.sexo}}">
+      <option value="Masculino">Masculino</option>
+      <option value="Femenino">Femenino</option>
+    </select> 
+    <h4 id="infoTelefono">Teléfono</h4>
+    <input type="number" maxlength="9" id="ingresoTelefono" class="contenedorPac__Principal__Uno__ingreso" placeholder="Ingrese teléfono del paciente" name="txtTelefono" value="{{pacienteEditar.telefono}}">
+    <h4 id="infoTelefono">Correo</h4>
+    <input type="text"  id="ingresoTelefono" class="contenedorPac__Principal__Uno__ingreso" placeholder="Ingrese teléfono del paciente" name="txtCorreo" value="{{pacienteEditar.correo}}">
+    <br>
+    <input type="submit" value="Guardar Paciente" class="contenedorPac__Principal__Uno__ingreso" id="guardarPaciente" >
+    <input type="button" onclick="location.href='{% url 'paciente' %}'" value="Cancelar" class="contenedorPac__Principal__Uno__ingreso" id="cancelarPaciente">
+  </form>
+  </div>
+  <!-- <div class="contenedorPac__Principal__Dos">
+    <div>
+      <ul class="menu">
+        <li><a href="#"  title="Enlace genérico" id="signo" >Signos vitales</a></li>
+        <li><a href="#" title="Enlace genérico" id="enfermedad">Enfermedades/Alergias</a></li>
+        <li><a href="#" title="Enlace genérico" id="otro">Otros</a></li>
+     </ul>
+    </div>
+    <form action="" id="formSigno" >
+      <div class="infoAdicional">
+      <h4>Temperatura</h4>
+      <input type="number" step="0.01" class="contenedorPac__Principal__Uno__ingreso" placeholder="Ingrese temperatura del paciente">
+      <h4>Respiración</h4>
+      <input type="number" class="contenedorPac__Principal__Uno__ingreso" placeholder="Ingrese respiración del paciente">
+      <h4>Pulso</h4>
+      <input type="number" maxlength="9" class="contenedorPac__Principal__Uno__ingreso" placeholder="Ingrese pulso del paciente">
+      <h4>Presión Arterial</h4>
+      <input type="text" maxlength="9" class="contenedorPac__Principal__Uno__ingreso" placeholder="Ingrese pulso del paciente">
+      </div>
+     </form>
+     <form action="" id="formEnfermedad" hidden>
+       <h4>Condiciones que se aplican en el paciente</h4>
+       <input type="checkbox" class="checkPaciente" value="asma"> <label for="cbox2">Asma</label><br>
+       <input type="checkbox" class="checkPaciente" value="cancer"> <label for="cbox2">Cáncer</label><br>
+       <input type="checkbox" class="checkPaciente" value="cardiaca"> <label for="cbox2">Enfermedad Cardiaca</label><br>
+       <input type="checkbox" class="checkPaciente" value="diabetes"> <label for="cbox2">Diabetes</label><br>
+       <input type="checkbox" class="checkPaciente" value="hipertension"> <label for="cbox2">Hipertensión</label><br>
+       <input type="checkbox" class="checkPaciente" value="epilepsia"> <label for="cbox2">Epilepsia</label><br>
+       <h4>Alergia a:</h4>
+       <label >Látex</label>
+       <select name="alergia" id="ingresoAlergia" class="contenedorPac__Principal__Uno__ingreso" style="width: 140px;">
+        <option value="seleccione">Seleccione</option>
+        <option value="si">Si</option>
+        <option value="no">No</option>
+      </select> <br>
+       <label for="cbox2">Medicamentos</label><br>
+        <textarea class="contenedorPac__Principal__Uno__ingreso" cols="30" rows="5"></textarea>
+      </form>
+     <form action="" id="formOtro" hidden>
+       <h4>Tratamiento Dental Previo</h4>
+       <label >¿Ha tenido una o más caries en los últimos tres años?</label>
+       <select name="alergia" id="ingresoAlergia" class="contenedorPac__Principal__Uno__ingreso" style="width: 140px;">
+        <option value="seleccione">Seleccione</option>
+        <option value="si">Si</option>
+        <option value="no">No</option>
+      </select><br>
+
+       <label >Tratamiento por enfermedad periodontal (de las encías)</label>
+       <select name="alergia" id="ingresoAlergia" class="contenedorPac__Principal__Uno__ingreso" style="width: 140px;">
+        <option value="seleccione">Seleccione</option>
+        <option value="si">Si</option>
+        <option value="no">No</option>
+      </select> <br>
+       
+       <label >Ortodoncia (aparatos)</label>
+       <select name="alergia" id="ingresoAlergia" class="contenedorPac__Principal__Uno__ingreso" style="width: 140px;">
+        <option value="seleccione">Seleccione</option>
+        <option value="si">Si</option>
+        <option value="no">No</option>
+      </select> <br>
+       <label >¿Tuvo cirugía bucal?</label>
+       <select name="alergia" id="ingresoAlergia" class="contenedorPac__Principal__Uno__ingreso" style="width: 140px;">
+        <option value="seleccione">Seleccione</option>
+        <option value="si">Si</option>
+        <option value="no">No</option>
+      </select> <br>
+       <label >¿Ha tenido implantes dentales?</label>
+       <select name="alergia" id="ingresoAlergia" class="contenedorPac__Principal__Uno__ingreso" style="width: 140px;">
+        <option value="seleccione">Seleccione</option>
+        <option value="si">Si</option>
+        <option value="no">No</option>
+      </select> <br>
+       <label >Tratamiento por trastornos temporomandibulares</label>
+       <select name="alergia" id="ingresoAlergia" class="contenedorPac__Principal__Uno__ingreso" style="width: 140px;">
+        <option value="seleccione">Seleccione</option>
+        <option value="si">Si</option>
+        <option value="no">No</option>
+      </select> <br>
+       <label >¿Usa dentadura postiza o prótesis parcial?</label>
+       <select name="alergia" id="ingresoAlergia" class="contenedorPac__Principal__Uno__ingreso" style="width: 140px;">
+        <option value="seleccione">Seleccione</option>
+        <option value="si">Si</option>
+        <option value="no">No</option>
+      </select> <br>
+     </form>
+  </div> -->
+   
+ 
+<!-- </div> -->

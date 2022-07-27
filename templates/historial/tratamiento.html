@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block estilos %}
+{% load static %}
+
+  <link rel="stylesheet" type="text/css" href='{% static "css/paciente.css" %}'>
+  <link rel="stylesheet" type="text/css" href='{% static "css/historial.css" %}'>
+  <link rel="stylesheet" type="text/css" href='{% static "css/inicio.css" %}'>
+  <link rel="stylesheet" type="text/css" href='{% static "css/titulos.css" %}'>
+
+  <script type="text/javascript">
+      function visualizarOdontograma(idOdontograma) {
+            $.ajax({
+                url: '/Historia/odontograma/visualizar',
+                type: "GET",
+                success: function (response) {
+                    print();
+                    if (data.result == 'ok') {
+                        print();
+                    }
+                }
+            });
+        }
+  </script>
+{% endblock %}
+{% block contenido %}  
+<img id="imgHistorial" src='{% static "img/historial.png" %}'> 
+<h1 id="tituloHistorial">Tratamientos realizados al paciente</h1>
+<a style="float: right" href="{% url 'nuevaHistoria' historia %}" class="button">Regresar</a>
+<br>
+<h3 style="margin-left: -70px;" id="tituloHistorial">Paciente: {{ paciente.0.nombres }} {{ paciente.0.apellidos }}</h3>
+
+<br>
+<div class="busqueda" >
+  <div class="busqueda__Historial">
+<input width="150%" type="text" id="myInput" onkeyup="myFunction()" placeholder="Búsqueda por nombres">
+<a style="height: 33px; float:right; margin-right: 500px;padding-top: 8px;" class="button">Buscar</a>
+  </div>
+</div> 
+
+<a style="background:rgb(18, 141, 49)" href="" name="" id="imprimirLista" class="buttonPacienteEditar" role="button"><ion-icon name="print-outline" class="nav__icon"></ion-icon> <br> Imprimir Lista</a>    
+
+<div class="table-wrapper" id="myTable">
+    <table class="fl-table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Tratamientos</th>
+            <th>Observación</th>
+            <th>Conclusión</th>
+        </tr>
+        </thead>
+        <tbody>
+              {% for diagnostico in entity %}
+            <tr>
+                <td>{{ diagnostico.idTratamientoRealizado }}</td>
+                <td>{{ diagnostico.idTratamiento.nombre }}</td>
+                <td>{{ diagnostico.observacionDiagnostico }}</td>
+                <td>{{ diagnostico.conclusion }}</td>
+            </tr>
+            {% endfor %}
+
+        <tbody>
+    </table>
+    <div align="center">
+      {% include 'paginator.html' %}
+    </div>
+</div>
+
+{% endblock %}
+{% block script %}
+{% load static %}
+<script src='{% static "js/busqueda.js" %}'></script>
+{% endblock %}

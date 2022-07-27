@@ -1,0 +1,444 @@
+@media (max-width: 540px){
+    .contenedorHistorial__Dos{
+        width:140%;
+    }
+
+    .contenedorHistorial__Tres{
+        visibility:hidden;
+    }
+    .ingresoHistoria h4, .ingresoHistoria__NumberDos h4, .ingresoHistoria__NumberTres h4, .ingresoHistoria__NumberCuatro h4{
+        font-size:12px;
+    }
+
+    .contenedorPac__Principal__Uno__ingreso, .ingresoHistoria #ingresoFecha, .ingresoHistoria #ingresoTelefono, .ingresoHistoria #ingresoCedula, .ingresoHistoria__NumberDos #texto__Direccion, .ingresoHistoria__NumberDos #texto__Correo, .ingresoHistoria__NumberTres #ingresoEstado{
+        width:140%;
+    }
+  
+
+    .ingresoHistoria__NumberDos #sexo{
+        width:90%;
+    }
+
+    #navbar{
+        height: 100%;
+    }
+    
+}
+
+
+
+
+.busqueda{
+    border-style: solid;
+    border-width: 4px;
+    border-top-color: rgba( 0, 0, 0, 0.2 );
+    border-left-color: white;
+    border-right-color: white;
+    border-bottom-color: white;
+    background: rgb(241, 240, 240);
+    padding: 14px 14px;
+}
+
+.busqueda__Historial{
+    border-style: solid;
+    border-width: 1px;
+    border-color: #9b9b9b;
+    padding: 6px 6px;
+}
+
+#imprimirLista{
+height: 45px;
+font-size: 14px;
+}
+
+.nav__icon{
+    height: 17px;
+}
+
+.contenedorHistorial{
+    position:relative;
+    height:100vh;
+    border-style: solid;
+    border-width:1px;
+}
+
+
+
+.contenedorHistorial__Uno{
+
+   height: 92%;
+   width:65%;
+
+    margin-left: 10px;
+    margin-bottom: 1px;
+    border-radius: 4px;
+    border-width: 6px;
+    border-color: var(--bg-color);
+}
+
+.contenedorHistorial__Dos{
+    background: var(--bg-color);
+    color:white;
+   border-radius: 4px;
+   height: 40px;
+}
+
+.datoPaciente{
+    position:relative;
+    top:9px;
+    left:14px;
+}
+
+.ingresoHistoria{
+    width: 100%;
+
+}
+
+.ingresoHistoria h4{
+    display: inline-block;
+}
+
+
+#ingresoHistoria__Number input{
+    width: 18%;
+    font-size: 11px;
+    padding: 12px 18px;
+    margin-right: 8px;
+}
+
+.ingresoHistoria__NumberDos h4{
+display: inline-block;
+}
+
+
+
+
+
+.ingresoHistoria__NumberDos input, .ingresoHistoria__NumberDos select, .ingresoHistoria__NumberTres select{
+    width: 18%;
+    font-size: 11px;
+    padding: 12px 18px;
+    margin-right: 8px;
+}
+
+#texto__Direccion, #texto__Correo{
+    width:26%;
+}
+
+.ingresoHistoria__NumberTres h4{
+    display: inline-block;
+}
+
+.contenedorHistorial__Tres{
+    position:absolute;
+    vertical-align: top;
+    /* position:absolute;
+    display: inline-block; */
+    width: 30%;
+    left: 68%;
+    top:3%;
+    padding:0;  
+}
+
+
+.contenedorHistorial__Tres .contenedorHistorial__Dos .datoPaciente{
+    margin: 0;
+    color: black;
+    font-size: 15px;
+}
+
+.contenedorHistorial__Tres .contenedorHistorial__Dos{
+    background-color:white;
+    border-width: 1px;
+    border-style: solid;
+    border-color:var(--bg-color);
+}
+
+.contenedorHistorial__Tres .contenedorHistorial__Dos:hover{
+    background-color:var(--bg-color);
+    border-color:white;
+    cursor:pointer;
+    color:white;
+}
+.contenedorHistorial__Tres .contenedorHistorial__Dos .datoPaciente:hover{
+    color:white;
+}
+
+.ingresoHistoria__NumberCuatro textarea{
+    display: inline-block;
+}
+
+.selector{
+    background: white;
+    color:var(--bg-color);
+    border-style: solid;
+    border-color:var(--bg-color);
+   border-radius: 4px;
+   height: 40px;
+   width:100%;
+   font-size:14px;
+   text-align: left;
+   padding-left: 12px;
+   font-weight: bold;
+   border-width: 1px;
+}
+
+.selector:hover{
+    background:var(--bg-color);
+    color:white;
+    cursor: pointer;
+}
+
+
+.menu{
+    border-style: solid;
+    border-bottom-width: 1px;
+    border-color:white;
+    border-bottom-color: black;
+}
+
+.ingresoEnfermedadActual__Dos{
+    position: relative;
+    width: 100%;
+}
+
+.ingresoEnfermedadActual__Dos h4{
+    display: inline-block;
+}
+
+.ingresoEnfermedadActual__Dos textarea{
+   width: 30%;
+    display:flex;
+}
+
+#tratamientoOrtodoncia, #medicamento, #anestesico, #trastorno{
+    width:20%;
+}
+
+#ortodonciaCantidad, #medicamentoCantidad, #anestesicoCantidad, #trastornoCantidad{
+    width:70%;
+}
+
+.contenedorExploracion h3{
+
+    
+    margin: 0;
+    padding: 0;
+    width:65%;
+    height:20px;
+ 
+}
+
+.contenedorExploracion{
+    top:30%;
+    height:40%;
+    border-style: solid;
+    border-width: 1px;
+    border-color:black;
+    
+}
+
+.contenedorExploracion__Uno{
+    position:absolute;
+    width:63%;
+    padding: 0;
+    left:20px;
+    padding-left: 10px;
+    height: auto;
+    padding-top: 9px;
+    border-radius: 5px;
+    top:18%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #9b9b9b;
+}
+
+.contenedorExploracion__Ultimo{
+    position:absolute;
+    width:63%;
+    padding: 0;
+    background-color:transparent ;
+    top:66%;
+    left:20px;
+    padding-left: 10px;
+    height: auto;
+    padding-top: 9px;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px; 
+    border-color: #9b9b9b;
+}
+
+.contenedorExploracion__Dos{
+    position: relative;
+    display: flex;
+    margin-top: 25px;    
+}
+
+.contenedorExploracion__Dos h4{
+    margin-right: 2%;
+    
+}
+
+.contenedorExploracion__Dos input{
+    position:relative;
+    width:25%;
+    height:10%;
+    margin-right: 30px;
+    padding-left: 15px;
+    top: 10px;
+}
+
+#tituloMedida{
+    position:absolute;
+    background:#9b9b9b;
+    left: 0;
+    top:0;
+    width: 100%;
+    height:12%;
+    padding-left: 10px;
+    padding-top:7px;
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+}
+
+.contenedorExploracion__Ultimo #tituloMedida{
+    height:18%;
+}
+
+
+.nav__name{
+    font-size: .750rem;  
+}
+
+#frmRegistroAlergia{
+    position:absolute;
+    top: 30%;
+    left:40%;
+    height:48%;
+    background:#9b9b9b;
+    padding-top:5px;
+    padding-left: 25px;
+    width: 30%;
+    border-radius: 25px;
+}
+
+#frmRegistroAlergia input, #frmRegistroAlergia textarea{
+    width:70%;
+}
+
+#frmRegistroAlergia .button{
+    position: relative;
+    left:23%;
+    margin-top: 10px;
+}
+
+#interfazOdontograma{
+    position:absolute;
+    top:20%;
+    left:5%;
+}
+
+#interfazOdontograma g{
+    cursor: pointer;
+}
+
+#opcionesOdontograma{
+    position:relative;
+    margin:0;
+    display:flex;
+}
+
+.opcionesOdontograma__Uno{
+    position:relative;
+    margin-right: 50px;
+}
+
+.opcionesOdontograma__Uno .opcionesOdontograma__Uno__Hijo{
+    margin-bottom: 10px;
+}
+
+#opcionesOdontograma h4{
+    margin:0;
+}
+
+
+.cuadrado{
+  width:10vh;
+  max-width:100px;
+  height:3vh;
+  max-height:100px;
+  position:relative;
+  border-style: solid;
+  border-width: 1px;
+  border-color: white;
+  border-radius: 5px;
+}
+
+.cuadrado:hover{
+    cursor: pointer;
+}
+
+#opcionObservacion{
+    background: rgb(103, 182, 103);
+}
+
+#opcionAusente{
+    background: rgb(76, 77, 80);
+}
+
+#opcionRadicular{
+    background: rgb(47, 36, 199);
+}
+
+#opcionCarie{
+    background: rgb(112, 175, 194);
+}
+
+#opcionCorona{
+    background: rgb(48, 47, 146);
+}
+
+#opcionIncrustacion{
+    background: rgb(176, 201, 176);
+}
+
+#opcionClavija{
+    background: rgb(8, 112, 8);
+}
+
+#opcionFractura{
+    background: rgb(204, 180, 143);
+}
+
+#opcionEndodoncia{
+    background: rgb(208, 150, 241);
+}
+
+#opcionObturacion{
+    background: rgb(140, 67, 158);
+}
+
+#opcionIntrusion{
+    background: rgb(216, 95, 210);
+}
+
+#opcionExtrusion{
+    background: rgb(233, 213, 102);
+}
+
+#opcionProtesis{
+    background: rgb(230, 77, 77);
+}
+
+#opcionImplante{
+    background: rgb(83, 53, 28);
+}
+
+#opcionOrtodoncia{
+    background: rgb(221, 224, 48);
+}
+
+#opcionEdentulo{
+    background: rgb(0, 0, 0);
+}

@@ -1,0 +1,67 @@
+<h1>Registro De Doctor</h1> 
+<br>
+<div class="contenedorPac__Principal">
+    <div class="contenedorPac__Principal__Uno" >
+        <form action="{% url 'registroDoctor' %}" method="POST" style="width:650px;">
+        {% csrf_token %}
+        <input type="text" hidden class="contenedorPac__Principal__Uno__ingreso" placeholder="Ingrese nombres del paciente" name="txtId" value="{{doctorEditar.idDoctor}}">
+        <!-- <h4>Nombres</h4>
+        <input type="text" name="txtNombre" value="{{doctorEditar.nombres}}" class="contenedorPac__Principal__Uno__ingreso" placeholder="Nombres del Doctor">
+        <h4>Apellidos</h4>
+        <input type="text" name="txtApellido" value="{{doctorEditar.apellidos}}" class="contenedorPac__Principal__Uno__ingreso" placeholder="Apellidos del Doctor">
+        <h4>Cédula</h4>
+        <input type="number" name="txtCedula" value="{{doctorEditar.cedula}}" maxlength="9" class="contenedorPac__Principal__Uno__ingreso" placeholder="Ingrese cédula del doctor">
+        <h4>Fecha de Nacimiento</h4>
+        <input type="date" name="txtFecha" value="{{doctorEditar.fecha}}" class="contenedorPac__Principal__Uno__ingreso" placeholder="Ingrese fecha de nacimiento del doctor">
+        <h4 id="infoSexo">Sexo</h4>
+        <select name="sexo" id="ingresoSexo" value="{{doctorEditar.sexo}}" class="contenedorPac__Principal__Uno__ingreso">
+          <option value="Masculino">Masculino</option>
+          <option value="Femenino">Femenino</option>
+        </select> 
+        <h4>Especialidad</h4>
+        <input type="text" name="txtEspecialidad" value="{{doctorEditar.especialidad}}" class="contenedorPac__Principal__Uno__ingreso" placeholder="Especialidad del Doctor">
+        <h4>Teléfono</h4>
+        <input type="number" name="txtTelefono" value="{{doctorEditar.telefono}}" maxlength="9" class="contenedorPac__Principal__Uno__ingreso" placeholder="Ingrese teléfono del doctor">
+        <h4>Correo</h4>
+        <input type="email" name="txtCorreo" value="{{doctorEditar.correo}}" class="contenedorPac__Principal__Uno__ingreso" placeholder="Ingrese correo del doctor">
+        <br>  -->
+
+        <div style="width:auto; display: flex;margin-top: 15px;" >
+          <input type="text" hidden class="contenedorPac__Principal__Uno__ingreso" placeholder="Ingrese nombres del paciente" name="txtId" value="{{doctorEditar.idDoctor}}">
+          <h4 style="margin-right: 34px;">Nombres</h4><br>
+          <input type="text" style="margin-right: 20px;width: 600px;" class="contenedorPac__Principal__Uno__ingreso" placeholder="Nombres del paciente" name="txtNombre" value="{{doctorEditar.nombres}}">
+          <h4 style="margin-right: 15px;">Apellidos</h4>
+          <input type="text" style="margin-right: 20px;width: 700px;" required class="contenedorPac__Principal__Uno__ingreso" placeholder="Apellidos del paciente" name="txtApellido" value="{{doctorEditar.apellidos}}">
+        </div>
+  
+        <div style="width:auto; display: flex;margin-top: 15px;">
+          <h4 style="margin-right:48px;">Cédula</h4>
+          <input style="margin-right: 24px;width: 200px;" type="number" required maxlength="9" class="contenedorPac__Principal__Uno__ingreso" placeholder="Cédula del paciente" name="txtCedula" value="{{doctorEditar.cedula}}"> 
+          <h4 style="margin-right: 48px;">Sexo</h4>
+          <select style="margin-right: 15px;width: 400px;" name="sexo" class="contenedorPac__Principal__Uno__ingreso" value="{{doctorEditar.sexo}}">
+            <option value="M">Masculino</option>
+            <option value="F">Femenino</option>
+          </select> 
+        </div>
+  
+        <div style="width:auto; display: flex;margin-top: 15px;">
+          <h4 style="margin-right: 48px;">Correo</h4>
+          <input style="margin-right: 24px;width: 200px;" type="text"   class="contenedorPac__Principal__Uno__ingreso" placeholder="Teléfono del paciente" name="txtCorreo" value="{{doctorEditar.correo}}">
+        
+          <h4 style="margin-right: 25px;height: 30px;margin-top: 10px;">Teléfono</h4>
+          <input style="margin-right: 15px;width: 180px;" type="number" maxlength="9" class="contenedorPac__Principal__Uno__ingreso" placeholder="Teléfono" name="txtTelefono" value="{{doctorEditar.telefono}}">
+        </div>
+  
+        <div style="width:auto; display: flex;margin-top: 3px;">
+          <h4 style="margin-right: 55px;">Fecha de Nacimiento</h4>
+          <input data-date="" data-date-format="DD MMMM YYYY" style="padding-left: 18px;width: 190px; height: 50px;margin-top: 15px;margin-left: -47px;" type="date" required class="contenedorPac__Principal__Uno__ingreso" placeholder="Ingrese fecha de nacimiento del paciente" name="txtFecha" value="{{ fecha }}">
+          <h4 style="margin-top: 28px;margin-left: 70px;">Especialidad</h4>
+          <input style="height: 50px;margin-top: 15px;margin-left: 35px;" type="text" name="txtEspecialidad" value="{{doctorEditar.especialidad}}" class="contenedorPac__Principal__Uno__ingreso" placeholder="Especialidad del Doctor">
+        
+        </div>
+        <br>
+        <input type="submit" value="Guardar Doctor" class="contenedorPac__Principal__Uno__ingreso" id="guardarDoctor">
+        <input type="button" onclick="location.href='{% url 'doctor' %}'" value="Cancelar" class="contenedorPac__Principal__Uno__ingreso" id="cancelarDoctor">
+      </form>
+      </div>
+</div>

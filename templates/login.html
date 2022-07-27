@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href='{% static "css/disenoLogin.css" %}'  >
+    <title>Document</title>
+</head>
+<body>
+<form  method="POST">
+    {% csrf_token %}
+    <div id="grupo">
+        <div id="grupo__Uno">
+            <img src='{% static "img/principal.png" %}' alt="">
+        </div>
+        
+    </div>
+    <div id="grupo__Dos">
+        <img id="imgUsuario" src='{% static "img/usuario.png" %}' alt="">
+        <br>
+        <input type="text" id="txtUsuario" placeholder="USUARIO" name="username">
+        <br>
+        <input type="password" id="txtClave" placeholder="CONTRASEÑA" name="password">
+        <br>
+        <input type="submit" name="" id="btnIngresar" value="Iniciar sesión">
+        <div id="footer">
+        </div>
+        </div>
+        
+</form>
+</body>
+</html>

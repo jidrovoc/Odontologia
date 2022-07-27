@@ -1,0 +1,10 @@
+#imgDoctor, #imgPaciente, #imgArea, #imgTratamiento, #imgHistorial, #imgCita{
+    position:absolute;
+    margin-bottom: 15px;
+}
+#tituloDoctor, #tituloPaciente, #tituloArea, #tituloTratamiento, #tituloHistorial, #tituloCita{
+    position:relative;
+    left:70px;
+    top:15px;
+    margin-bottom: 20px;
+  }

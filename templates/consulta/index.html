@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block estilos %}
+{% load static %}
+
+  <link rel="stylesheet" type="text/css" href='{% static "css/tratamiento.css" %}'>
+  <link rel="stylesheet" type="text/css" href='{% static "css/historial.css" %}'>
+  <link rel="stylesheet" type="text/css" href='{% static "css/inicio.css" %}'>
+  <link rel="stylesheet" type="text/css" href='{% static "css/titulos.css" %}'>
+{% endblock %}
+{% block contenido %}
+<img id="imgTratamiento" src='{% static "img/consulta.png" %}'> 
+<h1 id="tituloTratamiento">Consultas Médicas</h1>
+<br>
+<div class="busqueda" >
+  <div class="busqueda__Historial">
+<input width="150%" type="text" id="myInput" onkeyup="myFunction()" placeholder="Búsqueda por nombres">
+  </div>
+</div>
+<a href="" name="" id="imprimirLista" class="buttonPacienteEditar" role="button"><ion-icon name="print-outline" class="nav__icon"></ion-icon> <br> Descargar listado</a>
+<div class="table-wrapper" id="myTable">
+    <table class="fl-table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Área</th>
+            <th>Precio</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+          {% for tratamiento in tratamientoConsulta %}
+        <tr>
+            <td>{{ tratamiento.idTratamiento }}</td>
+            <td>{{ tratamiento.Tratamiento }}</td>
+            <td>{{ tratamiento.Area }}</td>
+            <td>{{ tratamiento.precio }}</td>
+            <td> <a href="{% url 'editarTratamiento' tratamiento.idTratamiento %}" name="" id="" class="buttonPacienteEditar" role="button">Editar</a>
+              |
+              <a href="" name="" id="" class="buttonPacienteEliminar" role="button">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+        <tbody>
+    </table>
+</div>
+{% endblock %}    
+{% block script %}
+{% load static %}
+<script src='{% static "js/busqueda.js" %}'></script>
+{% endblock %}

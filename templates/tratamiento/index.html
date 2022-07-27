@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block estilos %}
+{% load static %}
+
+  <link rel="stylesheet" type="text/css" href='{% static "css/tratamiento.css" %}'>
+  <link rel="stylesheet" type="text/css" href='{% static "css/historial.css" %}'>
+  <link rel="stylesheet" type="text/css" href='{% static "css/inicio.css" %}'>
+  <link rel="stylesheet" type="text/css" href='{% static "css/titulos.css" %}'>
+{% endblock %}
+{% block contenido %}
+<img id="imgTratamiento" src='{% static "img/tratamiento.png" %}'> 
+<h1 id="tituloTratamiento">Tratamientos</h1>
+<br>
+<div class="busqueda" >
+  <div class="busqueda__Historial">
+<a href="{% url 'nuevoTratamiento' %}" class="button">Registrar Nuevo Tratamiento</a>
+<br>
+<br>
+<form action="{% url 'busquedaTratamiento' %}" method="POST">
+  {% csrf_token %}
+<input width="150%" name="buscarTratamiento" type="text" id="myInput" onkeyup="myFunction()" placeholder="Búsqueda por nombre del tratamiento">
+<input style="width: 17%; background:var(--bg-color);color:white" type="submit" value="Consultar Tratamiento" class="contenedorPac__Principal__Uno__ingreso" id="guardarDoctor">
+<!-- <a style="height: 33px; float:right; margin-right: 500px;padding-top: 3px;" class="button">Buscar</a> -->
+</form>
+</div>
+</div>
+<a style="background:rgb(18, 141, 49)" href="" name="" id="imprimirLista" class="buttonPacienteEditar" role="button"><ion-icon name="print-outline" class="nav__icon"></ion-icon> <br> Descargar listado</a>
+<div class="table-wrapper" id="myTable">
+    <table class="fl-table">
+        <thead>
+        <tr>
+            <th>N°</th>
+            <th>Nombre</th>
+            <th>Área</th>
+            <th>Precio</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+          {% for tratamiento in entity %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ tratamiento.nombre }}</td>
+            <td>{{ tratamiento.idArea.nombre }}</td>
+            <td>{{ tratamiento.precio }}</td>
+            <td> <a style="background:rgb(18, 141, 49)" href="{% url 'editarTratamiento' tratamiento.idTratamiento %}" name="" id="" class="buttonPacienteEditar" role="button">Editar</a>
+              |
+              <a href="{% url 'eliminarTratamiento' tratamiento.idTratamiento %}" name="" id="" class="buttonPacienteEliminar" role="button">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+        <tbody>
+    </table>
+    <div align="center">
+      {% include 'paginator.html' %}
+    </div>
+</div>
+{% endblock %}    
+{% block script %}
+{% load static %}
+<script src='{% static "js/busqueda.js" %}'></script>
+{% endblock %}

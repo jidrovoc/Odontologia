@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block estilos %}
+{% load static %}
+
+  <link rel="stylesheet" type="text/css" href='{% static "css/paciente.css" %}'>
+  <link rel="stylesheet" type="text/css" href='{% static "css/historial.css" %}'>
+  <link rel="stylesheet" type="text/css" href='{% static "css/inicio.css" %}'>
+  <link rel="stylesheet" type="text/css" href='{% static "css/titulos.css" %}'>
+
+  <script type="text/javascript">
+    function consultarRegistro() {
+      var busqueda = document.getElementById("myInput").value;
+      if (busqueda != ''){
+        $.ajax({
+        url:'/Doctor',
+        type:'GET'
+        })
+      }else{
+        alert("Ingrese un registro para realizar la búsqueda")
+      }            
+    }
+  </script>
+
+{% endblock %}
+{% block contenido %}
+<img id="imgDoctor" src='{% static "img/doctor.png" %}'> 
+<h1 id="tituloDoctor"> Doctores</h1>
+<br>
+<div class="busqueda" >
+  <div class="busqueda__Historial">
+<a href="{% url 'nuevoDoctor' %}" class="button">Registrar Nuevo Doctor</a>
+<br>
+<br>
+<form action="{% url 'busquedaDoctor' %}" method="POST">
+  {% csrf_token %}
+<input width="150%" type="text" name="buscarDoctor" id="myInput" onkeyup="myFunction()" placeholder="Búsqueda por nombres">
+<input style="width: 17%; background:var(--bg-color);color:white" type="submit" value="Consultar Doctor" class="contenedorPac__Principal__Uno__ingreso" id="guardarDoctor">
+<!-- <a style="height: 33px; float:right; margin-right: 500px;padding-top: 8px;" class="button" onclick="">Buscar</a> -->
+</form>
+</div>
+</div>
+<a style="background:rgb(18, 141, 49)" href="" name="" id="imprimirLista" class="buttonPacienteEditar" role="button"><ion-icon name="print-outline" class="nav__icon"></ion-icon> <br> Descargar listado</a>
+<div class="table-wrapper" id="myTable">
+    <table class="fl-table">
+        <thead>
+        <tr>
+            <th>N°</th>
+            <th>Doctor</th>
+            <th>Especialidad</th>
+            <th>Sexo</th>
+            <th>Cédula</th>
+            <th>Edad</th>
+            <th>Teléfono</th>
+            <th>Correo</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+          {% for doctor in entity %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{doctor.nombres}} {{doctor.apellidos}}</td>
+            <td>{{doctor.especialidad}}</td>
+            <td>{{doctor.sexo}}</td>
+            <td>{{doctor.cedula}}</td>
+            <td>{{doctor.fecNacimiento}}</td>            
+            <td>{{doctor.telefono}}</td>
+            <td>{{doctor.correo}}</td>
+            <td> <a style="background:rgb(18, 141, 49)" href="{% url 'editarDoctor' doctor.idDoctor %}" name="" id="" class="buttonPacienteEditar" role="button">Editar</a>
+              |
+              <a href="{% url 'eliminarDoctor' doctor.idDoctor %}" name="" id="" class="buttonPacienteEliminar" role="button">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+        
+        
+        <tbody>
+          
+    </table>
+    <div align="center">
+      {% include 'paginator.html' %}
+    </div>
+</div>
+{% endblock %}
+{% block script %}
+{% load static %}
+<script src='{% static "js/busqueda.js" %}'></script>
+{% endblock %}

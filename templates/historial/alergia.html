@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block estilos %}
+{% load static %}
+
+  <link rel="stylesheet" type="text/css" href='{% static "css/paciente.css" %}'>
+  <link rel="stylesheet" type="text/css" href='{% static "css/historial.css" %}'>
+  <link rel="stylesheet" type="text/css" href='{% static "css/inicio.css" %}'>
+  <link rel="stylesheet" type="text/css" href='{% static "css/titulos.css" %}'>
+
+  <script type="text/javascript">
+      function guardarAlergia() {
+            var alergia = document.getElementById("txtNombre").value;
+            var observacion = document.getElementById("txtObservacion").value;
+            $.ajax({
+                url: '/guardarAlergia',
+                type: "GET",
+                data: { 'nombre': alergia, 'observacion': observacion},
+                success: function (response) {
+                    print();
+                    if (data.result == 'ok') {
+                        print();
+                    }
+                }
+            });
+        }
+  </script>
+{% endblock %}
+{% block contenido %} 
+<img id="imgHistorial" src='{% static "img/historial.png" %}'> 
+<h1 id="tituloHistorial">Alergias</h1>
+<a style="float: right" href="{% url 'nuevaHistoria' historial %}" class="button">Regresar</a>
+<br>
+<h3 style="margin-left: -70px;" id="tituloHistorial">Paciente: {{ paciente.0.nombres }} {{ paciente.0.apellidos }}</h3>
+
+<br>
+<div class="busqueda" >
+  <div class="busqueda__Historial">
+<input width="150%" type="text" id="myInput" onkeyup="myFunction()" placeholder="Búsqueda por nombres">
+<a style="height: 33px; float:right; margin-right: 500px;padding-top: 8px;" class="button">Buscar</a>
+  </div>
+</div> 
+
+<a style="background:rgb(18, 141, 49)" href="" name="" id="imprimirLista" class="buttonPacienteEditar" role="button"><ion-icon name="print-outline" class="nav__icon"></ion-icon> <br> Imprimir Lista</a>    
+<div class="table-wrapper" id="myTable">
+  <form method="POST" action="{% url 'guardarAlergia' %}">
+    {% csrf_token %}
+    <input style="width: 22%" name="txtNombre" type="text" id="txtNombre" style="width: 35%;" class="contenedorPac__Principal__Uno__ingreso" placeholder="Nombre de la alergia">
+    <input type="text" name="txtObservacion" id="txtObservacion" style="width: 35%;" class="contenedorPac__Principal__Uno__ingreso" placeholder="Observación">
+    <input type="text" hidden name="txtHistorial" value="{{ historial }}" id="txtObservacion" style="width: 35%;" class="contenedorPac__Principal__Uno__ingreso" placeholder="Observación">
+    <input style="width: 20%;color: white;" type="submit" value="Guardar Alergia" class="contenedorPac__Principal__Uno__ingreso" id="guardarPaciente" >
+  </form>
+    <table class="fl-table">
+        <thead>
+        <tr>
+            <th>N°</th>
+            <th>Alergia</th>
+            <th>Observación</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+          {% for alergia in entity %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{alergia.nombre }}</td>
+            <td>{{alergia.observacion}}</td>
+            <td> <a style="background: rgb(18, 141, 49)" href="{% url 'nuevaHistoria' alergia.idAlergia %}" name="" id="" class="buttonPacienteEditar" role="button">Editar</a>
+              |
+              <a href="" name="" id="" class="buttonPacienteEliminar" role="button">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+
+        <tbody>
+    </table>
+    <div align="center">
+      {% include 'paginator.html' %}
+    </div>
+</div>
+{% endblock %}
+{% block script %}
+{% load static %}
+<script src='{% static "js/busqueda.js" %}'></script>
+{% endblock %}

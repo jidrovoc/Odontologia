@@ -1,0 +1,41 @@
+.txtOpcion{
+    position: relative;
+    height:5px;
+    width:60vh;
+    border-style: solid;
+    border-width: 1px;
+    border-radius:1px;
+}
+
+#listaTratamiento{
+    position:relative;
+    margin-left: 1%;
+    margin-top: 1%;
+    height: 6vh;
+    width:51vh;
+}
+
+#tratamientoDiv{
+    position:relative;
+    height: 16vh;
+}
+
+#divSaldo{
+    position:relative;
+    bottom: 20%;
+    height:10vh;
+}
+
+#divSaldo h4{
+    position: relative;
+    margin-right: 2%;
+}
+
+.inputSaldo{
+    position:relative;
+    margin-top: 1%;
+    margin-right: 30px;
+    width: 30%;
+    border-width: 1px;
+}
+

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block estilos %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href='{% static "css/paciente.css" %}'>
+<link rel="stylesheet" type="text/css" href='{% static "css/historial.css" %}'>
+<link rel="stylesheet" type="text/css" href='{% static "css/inicio.css" %}'>
+<link rel="stylesheet" type="text/css" href='{% static "css/titulos.css" %}'>
+{% endblock %}
+{% block contenido %} 
+<img id="imgPaciente" src='{% static "img/paciente.png" %}'>
+<h1 id="tituloPaciente">Estados de cuenta</h1>
+<br>
+<div class="busqueda" >
+  <div class="busqueda__Historial">
+<form action="{% url 'busquedaCuenta' %}" method="POST">
+  {% csrf_token %}    
+<input width="150%" type="text" name="buscarCuenta" id="myInput" onkeyup="myFunction()" placeholder="Búsqueda por nombres">
+<input style="width: 17%; background:var(--bg-color);color:white;padding-left: 18px;cursor: pointer;" type="submit" value="Consultar Cuenta" class="contenedorPac__Principal__Uno__ingreso" id="guardarDoctor">
+<!-- <a style="height: 33px; float:right; margin-right: 500px;padding-top: 8px;" class="button">Buscar</a> -->
+</form>
+</div>
+</div>
+<a style="background-color: #4CAF50" href="" name="" id="imprimirLista" class="buttonPacienteEditar" role="button"><ion-icon name="print-outline" class="nav__icon"></ion-icon> <br> Descargar listado</a>
+<div class="table-wrapper" id="myTable">
+    <table class="fl-table">
+        <thead>
+        <tr>
+            <th>N°</th>
+            <th>Paciente</th>        
+            <th>Fecha</th>
+            <th>Abono</th>
+            <th>Saldo</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+          {% for cuenta in entity %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{cuenta.idPaciente.nombres}} {{cuenta.idPaciente.apellidos}}</td>
+            <td>{{cuenta.fecha}}</td>
+            <td>{{cuenta.abono}}</td>
+            <td>{{cuenta.saldo}}</td>
+            <td> <a style="background-color: #4CAF50" href="{% url 'visualizarCuenta' cuenta.idEstado %}" name="" id="" class="buttonPacienteEditar" role="button">Visualizar cuenta</a>
+            </td>
+        </tr>
+        {% endfor %}
+        
+        
+        <tbody>
+    </table>
+    <div align="center">
+      {% include 'paginator.html' %}
+    </div>
+</div>
+{% endblock %}
+{% block script %}
+{% load static %}
+<script src='{% static "js/busqueda.js" %}'></script>
+{% endblock %}
